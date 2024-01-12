@@ -1,0 +1,10 @@
+version: '3'
+
+services:
+  funnybot:
+    container_name: businesscardbotcontainer
+    build: ./
+
+networks:
+  default:
+    driver: bridge

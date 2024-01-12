@@ -15,5 +15,5 @@ main_buttons = [
     ],
     [
         InlineKeyboardButton("☎️ Мои контакты", callback_data="mycontacts"),
-    ]
+    ],
 ]
