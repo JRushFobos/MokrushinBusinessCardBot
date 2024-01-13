@@ -9,13 +9,13 @@ import text
 from menu import main_buttons
 
 logging.basicConfig(
-    format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
     level=logging.INFO,
 )
 
 
 load_dotenv()
-secret_token = os.getenv("TOKEN")
+secret_token = os.getenv('TOKEN')
 
 
 def wake_up(update, context):
@@ -28,8 +28,8 @@ def wake_up(update, context):
     context.bot.send_message(
         chat_id=chat.id,
         text=(
-            "📃 Бот визитка Мокрушина Евгения\n"
-            f"{name}, выберите что вас интересует:"
+            '📃 Бот визитка Мокрушина Евгения\n'
+            f'{name}, выберите что вас интересует:'
         ),
         reply_markup=keyboard,
     )
@@ -43,7 +43,7 @@ def main_menu(update, context):
 
     context.bot.send_message(
         chat_id=chat.id,
-        text="Выберите интересующую вас категорию:",
+        text='Выберите интересующую вас категорию:',
         reply_markup=keyboard,
     )
 
@@ -68,8 +68,8 @@ def cv_link(update, context):
 
 def cv_pdf(update, context):
     chat = update.effective_chat
-    pdf_file = "cv.pdf"
-    context.bot.send_document(chat.id, document=open(pdf_file, "rb"))
+    pdf_file = 'cv.pdf'
+    context.bot.send_document(chat.id, document=open(pdf_file, 'rb'))
     main_menu(update, context)
 
 
@@ -91,28 +91,29 @@ def mycontacts(update, context):
     main_menu(update, context)
 
 
-# Очищаем данные
-def reset_conversation(update, context):
-    context.user_data.clear()
-    return wake_up(update, context)
+def about_bot(update, context):
+    chat = update.effective_chat
+    context.bot.send_message(chat.id, text=text.about_bot)
+    main_menu(update, context)
 
 
 def main():
     updater = Updater(token=secret_token)
     dp = updater.dispatcher
 
-    dp.add_handler(CommandHandler("start", wake_up))
-    dp.add_handler(CallbackQueryHandler(about_me, pattern="aboutme"))
-    dp.add_handler(CallbackQueryHandler(skills, pattern="skills"))
-    dp.add_handler(CallbackQueryHandler(cv_link, pattern="cv_link"))
-    dp.add_handler(CallbackQueryHandler(cv_pdf, pattern="cv_pdf"))
-    dp.add_handler(CallbackQueryHandler(work_experience, pattern="experiance"))
-    dp.add_handler(CallbackQueryHandler(myprojects, pattern="myprojects"))
-    dp.add_handler(CallbackQueryHandler(mycontacts, pattern="mycontacts"))
+    dp.add_handler(CommandHandler('start', wake_up))
+    dp.add_handler(CommandHandler('about_bot', about_bot))
+    dp.add_handler(CallbackQueryHandler(about_me, pattern='aboutme'))
+    dp.add_handler(CallbackQueryHandler(skills, pattern='skills'))
+    dp.add_handler(CallbackQueryHandler(cv_link, pattern='cv_link'))
+    dp.add_handler(CallbackQueryHandler(cv_pdf, pattern='cv_pdf'))
+    dp.add_handler(CallbackQueryHandler(work_experience, pattern='experiance'))
+    dp.add_handler(CallbackQueryHandler(myprojects, pattern='myprojects'))
+    dp.add_handler(CallbackQueryHandler(mycontacts, pattern='mycontacts'))
 
     updater.start_polling()
     updater.idle()
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()
