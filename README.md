@@ -43,31 +43,31 @@ docker stop businesscardbot
 ```
 
 ### 3. Запуск бота (локально)
-4.1. Клонируем проект:
+3.1. Клонируем проект:
 
 ```bash
 git clone https://github.com/JRushFobos/businesscardbot.git
 ```
 
-4.2. Устанавливаем виртуальное окружение
+3.2. Устанавливаем виртуальное окружение
 
 ```bash
 python -m venv venv
 ```
 
-4.3. Активируем виртуальное окружение
+3.3. Активируем виртуальное окружение
 
 ```bash
 source venv/Scripts/activate
 ```
 
-4.4. Устанавливаем зависимости
+3.3. Устанавливаем зависимости
 
 ```bash
 pip install -r requirements.txt
 ```
 
-4.5. Запускаем бота
+3.5. Запускаем бота
 
 ```bash
 python businesscardbot.py
