@@ -79,8 +79,13 @@ myprojects = (
     '\t\t\t\t ссылка t.me/JRushFunnybot\n'
     '2️⃣ MokrushinBusinessCardBot - бот визитка (Функционирует).\n'
     '\t\t\t\t ссылка t.me/MokrushinBusinessCardBot\n'
-    '3️⃣ Foodgram - Сайт с рецептами (В разработке).\n'
-    '\t\t\t\t Статус: покрытия тестами и развертывания в продакшн\n'
+    '3️⃣ HomeRecipes - Сайт с рецептами (Функционирует).\n'
+    '\t\t\t\t ссылка: https://homerecipes.sytes.net/recipes\n'
+    '4️⃣ API тесты сайта с рецептами https://homerecipes.sytes.net/recipes (Функционирует).\n'
+    '\t\t\t\t ссылка: https://github.com/JRushFobos/API_tests_homerecipes.sytes.net\n'
+    '\t\t\t\t Запуск через GitHub Actions\n'
+    '\t\t\t\t Allure отчет по ссылке: https://jrushfobos.github.io/API_tests_homerecipes.sytes.net/\n'
+    '5️⃣ UI тесты сайта с рецептами https://homerecipes.sytes.net/recipes (В разработке).\n'
 )
 
 mycontacts = (
