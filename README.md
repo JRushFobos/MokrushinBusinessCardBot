@@ -23,8 +23,13 @@ Local
 docker ps -a
 docker images
 
-docker tag businesscardbot:latest jrush/businesscardbot:latest
+docker build -t businesscardbot . && 
+docker run --name businesscardbotcontainer -d businesscardbot 
+
+docker tag businesscardbot:latest jrush/businesscardbot:latest &&
 docker push jrush/businesscardbot:latest
+
+
 ```
 Remote
 ```bash
